@@ -1,6 +1,6 @@
 # Shopping recipes
 
-This is a project made as a exercise for [Angular - The Complete Guide (2021 Edition)](https://ibm-learning.udemy.com/course/the-complete-guide-to-angular-2), by [Maximilian Schwarzmüller](https://www.udemy.com/course/the-complete-guide-to-angular-2/#instructor-1).
+This is a project made as an exercise for [Angular - The Complete Guide (2021 Edition)](https://ibm-learning.udemy.com/course/the-complete-guide-to-angular-2), by [Maximilian Schwarzmüller](https://www.udemy.com/course/the-complete-guide-to-angular-2/#instructor-1).
 
 # Main objectives of this course
 
