@@ -20,4 +20,8 @@ export class RecipeDetailComponent implements OnInit {
     });
   }
 
+  public onAddToShoppingList() {
+    this._recipeService.addIngredientsToShoppingList(this.recipeSelected.ingredients);
+  }
+
 }
