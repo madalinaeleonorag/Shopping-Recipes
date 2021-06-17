@@ -15,12 +15,16 @@ export class ShoppingListComponent implements OnInit {
 
     this._shoppingListService.isRefreshIngredients$.subscribe((isRefreshed: boolean) => {
       this.ingredients = this._shoppingListService.getIngredients();
-    })
+    });
 
   }
 
   ngOnInit(): void {
     this.ingredients = this._shoppingListService.getIngredients();
+  }
+
+  public onEditItem(index: number) {
+    this._shoppingListService.startedEditing.next(index);
   }
 
 }

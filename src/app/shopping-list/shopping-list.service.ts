@@ -6,12 +6,12 @@ import { Ingredient } from '../shared/ingredient';
   providedIn: 'root'
 })
 export class ShoppingListService {
-  
+
   public isRefreshIngredients = new Subject<boolean>();
   public isRefreshIngredients$ = this.isRefreshIngredients.asObservable();
-  
+  public startedEditing = new Subject<number>();
+
   private ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 10)
   ];
@@ -19,16 +19,20 @@ export class ShoppingListService {
   constructor() { }
 
   public addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
+    this.ingredients = this.uniqueIngredients([...this.ingredients, ingredient]);
     this.isRefreshIngredients.next(true);
   }
 
+  public getIngredient(index: number) {
+    return this.ingredients[index];
+  }
+
   public getIngredients(): Ingredient[] {
-    return this.uniqueIngredients(this.ingredients);
+    return this.ingredients;
   }
 
   public addIngredients(ingredients: Ingredient[]) {
-    this.ingredients.push(...ingredients);
+    this.ingredients = this.uniqueIngredients([...this.ingredients, ...ingredients]);
     this.isRefreshIngredients.next(true);
   }
 
