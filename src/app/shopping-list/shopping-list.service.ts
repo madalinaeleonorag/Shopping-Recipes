@@ -36,6 +36,11 @@ export class ShoppingListService {
     this.isRefreshIngredients.next(true);
   }
 
+  public deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.isRefreshIngredients.next(true);
+  }
+
   private uniqueIngredients(ingredients: Ingredient[]): Ingredient[] {
 
     const uniqueIngredients: Ingredient[] = [];
