@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -63,7 +64,11 @@ export class RecipeEditComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.recipeForm);
+    if (this.editMode) {
+      this._recipeService.updateRecipe(this.id, this.recipeForm.value);
+    } else {
+      this._recipeService.addRecipe(this.recipeForm.value);
+    }
   }
 
   onAddIngredient() {
@@ -74,5 +79,9 @@ export class RecipeEditComponent implements OnInit {
         Validators.pattern(/^[1-9]+[0-9]*$/)
       ])
     }));
+  }
+
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).controls.splice(index, 1);
   }
 }

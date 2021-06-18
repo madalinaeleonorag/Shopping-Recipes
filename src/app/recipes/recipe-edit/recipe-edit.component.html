@@ -3,12 +3,6 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-          <button type="button" class="btn btn-danger">Cancel</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Name</label>
             <input
@@ -52,23 +46,59 @@
           </div>
         </div>
       </div>
+      <hr *ngIf="recipeForm.get('ingredients').controls.length > 0"/>
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
-          <div class="row" *ngFor="let ingredient of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i" style="margin-top: 10px;">
+          <div
+            class="row"
+            *ngFor="
+              let ingredient of recipeForm.get('ingredients').controls;
+              let i = index
+            "
+            [formGroupName]="i"
+            style="margin-top: 10px"
+          >
             <div class="col-xs-8">
-              <input type="text" class="form-control" formControlName="name"/>
+              <input type="text" class="form-control" formControlName="name" />
             </div>
             <div class="col-xs-2">
-              <input type="number" class="form-control" formControlName="amount"/>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="amount"
+              />
             </div>
-            <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+            <div class="col-xs-2 text-right">
+              <button class="btn btn-danger" (click)="onDeleteIngredient(i)">
+                X
+              </button>
             </div>
           </div>
-          <hr>
           <div class="row">
             <div class="col-xs-12">
-              <button class="btn btn-success" type="button" (click)="onAddIngredient()">Add ingredient</button>
+              <div class="">
+                <button
+                  class="btn btn-success btn-add-ingredient"
+                  type="button"
+                  (click)="onAddIngredient()"
+                >
+                  Add ingredient
+                </button>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-danger">Cancel</button>
+              <button type="button" class="btn btn-warning">Clear</button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="!recipeForm.valid"
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
