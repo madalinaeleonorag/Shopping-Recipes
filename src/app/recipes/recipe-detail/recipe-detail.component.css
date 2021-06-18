@@ -1,0 +1,9 @@
+.recipe-description {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.image {
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+}
