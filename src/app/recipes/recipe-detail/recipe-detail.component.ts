@@ -23,8 +23,6 @@ export class RecipeDetailComponent implements OnInit {
     });
   }
 
-
-
   public onAddToShoppingList() {
     this._recipeService.addIngredientsToShoppingList(this.recipeSelected.ingredients);
   }
@@ -35,6 +33,7 @@ export class RecipeDetailComponent implements OnInit {
 
   onDeleteRecipe() {
     this._recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
   }
 
 }
