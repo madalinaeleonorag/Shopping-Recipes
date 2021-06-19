@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
@@ -15,7 +15,7 @@ export class RecipeEditComponent implements OnInit {
   public editMode = false;
   recipeForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private _recipeService: RecipeService) { }
+  constructor(private route: ActivatedRoute, private _recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -69,6 +69,7 @@ export class RecipeEditComponent implements OnInit {
     } else {
       this._recipeService.addRecipe(this.recipeForm.value);
     }
+    this.onCancel();
   }
 
   onAddIngredient() {
@@ -83,5 +84,9 @@ export class RecipeEditComponent implements OnInit {
 
   onDeleteIngredient(index: number) {
     (<FormArray>this.recipeForm.get('ingredients')).controls.splice(index, 1);
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }
