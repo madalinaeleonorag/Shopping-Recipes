@@ -11,8 +11,8 @@ This is a project made as an exercise for [Angular - The Complete Guide (2021 Ed
 
 ## Screenshots
 * List of existing recipes <br>
-![''](./screenshot/recipes.png)
+![''](./src/assets/screenshot/recipes.png)
 * Adding a new recipe <br>
-![''](./screenshot/new-recipe.png)
+![''](./src/assets/screenshot/new-recipe.png)
 * Shopping list <br>
-![''](./screenshot/shopping-list.png)
+![''](./src/assets/screenshot/shopping-list.png)
