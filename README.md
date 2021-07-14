@@ -8,3 +8,11 @@ This is a project made as an exercise for [Angular - The Complete Guide (2021 Ed
 * Fully understand the architecture behind an Angular application and how to use it
 * Use the gained, deep understanding of the Angular fundamentals to quickly establish yourself as a frontend developer
 * Create single-page applications with one of the most modern JavaScript frameworks out there
+
+## Screenshots
+* List of existing recipes <br>
+![''](./screenshot/recipes.png)
+* Adding a new recipe <br>
+![''](./screenshot/new-recipe.png)
+* Shopping list <br>
+![''](./screenshot/shopping-list.png)
